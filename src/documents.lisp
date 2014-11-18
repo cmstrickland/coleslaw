@@ -62,6 +62,7 @@ is provided, it overrides the route used."
 (defun write-document (document &optional theme-fn &rest render-args)
   "Write the given DOCUMENT to disk as HTML. If THEME-FN is present,
 use it as the template passing any RENDER-ARGS."
+  (format t "writing doc ~a ~%" document)
   (let ((html (if (or theme-fn render-args)
                   (apply #'render-page document theme-fn render-args)
                   (render-page document nil)))

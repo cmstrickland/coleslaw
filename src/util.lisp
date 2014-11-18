@@ -89,6 +89,7 @@ along with any missing parent directories otherwise."
                    :if-exists :supersede
                    :if-does-not-exist :create
                    :external-format :utf-8)
+    (format t "writing ~a~%" path)
     (write text :stream out :escape nil)))
 
 (defun get-updated-files (&optional (revision *last-revision*))
