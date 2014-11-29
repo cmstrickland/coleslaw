@@ -18,7 +18,7 @@
                 #:construct
                 #:compute-url
                 #:author
-                #:repo-dir
+                #:repo
                 #:file
                 #:make-keyword
                 #:do-files
@@ -40,7 +40,7 @@
 
 (defmethod discover ((doc-type (eql (find-class 'subpost))))
   (let ((file-type (format nil "~(~A~)" 'post)))
-    (do-files (file (repo-dir *config*) file-type)
+    (do-files (file (repo *config*) file-type)
       (let ((obj (construct 'subpost (read-content file))))
         (print-object obj *standard-output*)
         (add-document obj)))))
